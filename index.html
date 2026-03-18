@@ -203,6 +203,84 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         SUBMISSION FORM
+    ============================================================ -->
+    <section id="submit">
+      <h2>Submit a Paper</h2>
+
+      <form id="submission-form" novalidate>
+
+        <div class="form-group">
+          <label for="authors">Author name(s) *</label>
+          <input type="text" id="authors" name="authors" required
+            placeholder="Jane Doe, John Smith">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Contact email *</label>
+          <input type="email" id="email" name="email" required
+            placeholder="author@university.edu">
+        </div>
+
+        <div class="form-group">
+          <label for="affiliation">Affiliation(s) *</label>
+          <input type="text" id="affiliation" name="affiliation" required
+            placeholder="University of Example">
+        </div>
+
+        <div class="form-group">
+          <label for="paper-title">Paper title *</label>
+          <input type="text" id="paper-title" name="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="abstract">Abstract (max 300 words) *</label>
+          <textarea id="abstract" name="abstract" required rows="6"
+            aria-describedby="word-count"></textarea>
+          <span id="word-count" aria-live="polite">0 / 300 words</span>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+            <legend>Are you based in Latin America or the Caribbean? *</legend>
+            <label>
+              <input type="radio" name="lac" value="Yes" required> Yes
+            </label>
+            <label>
+              <input type="radio" name="lac" value="No"> No
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <label for="pdf">Upload PDF (max 20 MB) *</label>
+          <div class="drop-zone" id="drop-zone" role="region"
+            aria-label="PDF upload drop zone">
+            <p>Drop PDF here or click to browse</p>
+            <input type="file" id="pdf" name="pdf" accept=".pdf" required
+              aria-label="Upload PDF file">
+          </div>
+        </div>
+
+        <!-- Honeypot — hidden from real users, catches bots -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off"
+          class="honeypot" aria-hidden="true">
+
+        <button type="submit" id="submit-btn">Submit Paper</button>
+
+      </form>
+
+      <div id="form-status" role="alert" aria-live="assertive"></div>
+      <div id="deadline-notice" style="display:none"></div>
+
+      <p class="privacy-notice">
+        Your data will be used solely for the purpose of reviewing submissions for
+        BREAD Mexico 2026. Data will be retained until December 2026 and then deleted.
+        Contact <a href="mailto:mtromero@itam.mx">mtromero@itam.mx</a> with questions.
+      </p>
+    </section>
+
   </main>
 
   <!-- ============================================================
