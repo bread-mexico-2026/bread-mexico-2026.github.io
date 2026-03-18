@@ -163,8 +163,8 @@ function validateForm(form) {
     if (file.type !== 'application/pdf') {
       errors.push('The uploaded file must be a PDF');
     }
-    if (file.size > 20 * 1024 * 1024) {
-      errors.push('PDF file size must not exceed 20 MB');
+    if (file.size > 10 * 1024 * 1024) {
+      errors.push('PDF file size must not exceed 10 MB');
     }
   }
 
@@ -290,11 +290,13 @@ function initSubmitHandler() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
     statusDiv.className = '';
-    statusDiv.textContent = 'Uploading your paper. This may take a minute for large files.';
+    statusDiv.textContent = 'Encoding your PDF. Please wait...';
 
     try {
       const pdfFile = form.elements.pdf.files[0];
       const pdfBase64 = await fileToBase64(pdfFile);
+
+      statusDiv.textContent = 'Uploading your paper. This may take a minute for large files.';
 
       const mentoringEl = form.querySelector('input[name="mentoring"]:checked');
       const payload = {
@@ -312,33 +314,39 @@ function initSubmitHandler() {
         pdfBase64:    pdfBase64,
       };
 
-      // mode: 'no-cors' is required because Google Apps Script's redirect
-      // chain does not include proper CORS headers. This means we get an
-      // opaque response (can't read the body), but the request goes through.
-      // Server-side errors are visible in the Apps Script execution logs.
-      await fetch(APPS_SCRIPT_URL, {
+      // Google Apps Script returns Access-Control-Allow-Origin: * on both
+      // the 302 redirect and the final echo response, so standard CORS works.
+      // Using text/plain avoids a preflight OPTIONS request.
+      const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
+        redirect: 'follow',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload),
       });
 
-      // If fetch didn't throw, the request was sent successfully
-      statusDiv.className = 'success';
-      statusDiv.textContent = 'Submission received. Thank you!';
-      form.reset();
-      // Reset drop zone label
-      const p = document.querySelector('#drop-zone p');
-      if (p) p.textContent = 'Drop PDF here or click to browse';
-      localStorage.removeItem(DRAFT_KEY);
-      // Reset word counter
-      updateWordCount();
+      let result;
+      try {
+        result = await response.json();
+      } catch (_) {
+        throw new Error('Server returned an unexpected response. Please try again.');
+      }
+
+      if (result.success) {
+        statusDiv.className = 'success';
+        statusDiv.textContent = result.message || 'Submission received. Thank you!';
+        form.reset();
+        const p = document.querySelector('#drop-zone p');
+        if (p) p.textContent = 'Drop PDF here or click to browse';
+        localStorage.removeItem(DRAFT_KEY);
+        updateWordCount();
+      } else {
+        statusDiv.className = 'error';
+        statusDiv.textContent = result.message || 'Submission failed. Please try again.';
+      }
     } catch (err) {
       statusDiv.className = 'error';
-      statusDiv.textContent = 'Error: ' + err.message + ' (check browser console for details)';
+      statusDiv.textContent = 'Network error: ' + err.message;
       console.error('Submission error:', err);
-      console.error('Error name:', err.name);
-      console.error('Error stack:', err.stack);
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit Paper';

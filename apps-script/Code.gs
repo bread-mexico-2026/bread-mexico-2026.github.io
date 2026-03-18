@@ -30,8 +30,8 @@ function doPost(e) {
 
     // 4. Check file size before decoding (base64 is ~4/3 of actual size)
     var approxSize = data.pdfBase64.length * 3 / 4;
-    if (approxSize > 20 * 1024 * 1024) {
-      return jsonResponse({ success: false, message: 'PDF exceeds 20MB limit.' });
+    if (approxSize > 10 * 1024 * 1024) {
+      return jsonResponse({ success: false, message: 'PDF exceeds 10 MB limit.' });
     }
 
     // 5. Decode and save PDF
@@ -85,6 +85,10 @@ function buildFileName(data) {
     .slice(0, 5)
     .join('-');
   return ts + '_' + emailPrefix + '_' + titleSlug + '.pdf';
+}
+
+function doGet() {
+  return jsonResponse({ status: 'ok', message: 'BREAD Mexico 2026 submission endpoint. Use POST to submit.' });
 }
 
 function jsonResponse(obj) {
