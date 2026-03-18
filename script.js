@@ -8,7 +8,7 @@
 // CONSTANTS
 // ---------------------------------------------------------------------------
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyapomcvsI1EgkTNoL6PSIO8GXmqusdctdb8utAtrpS1vpOJAGHbvlTOe_nlOmxDbmJ/exec';
 
 // Deadline: August 15 2026 23:59:59 CST (UTC-6)
 const SUBMISSION_DEADLINE = new Date('2026-08-15T23:59:59-06:00');
