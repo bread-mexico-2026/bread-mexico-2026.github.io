@@ -1,0 +1,772 @@
+/* ============================================================
+   CSS RESET + BASE
+============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: #0f3460;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #0a2540;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+  color: #fff;
+  text-align: center;
+  padding: 48px 24px 40px;
+}
+
+header .logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+header .logo-row img {
+  max-height: 48px;
+  width: auto;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+header .subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+header .tagline {
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #f0f0f5;
+  border-bottom: 1px solid #ddd;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 14px 16px;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.2s, background 0.2s;
+}
+
+nav ul li a:hover {
+  color: #0f3460;
+  background: #e2e2ed;
+  text-decoration: none;
+}
+
+nav ul li a.active {
+  color: #0f3460;
+  border-bottom: 2px solid #0f3460;
+}
+
+/* ============================================================
+   SECTIONS — SHARED
+============================================================ */
+
+main section {
+  padding: 56px 24px;
+}
+
+main section:nth-child(odd) {
+  background: #fff;
+}
+
+main section:nth-child(even) {
+  background: #fafafa;
+}
+
+main section > *,
+main section .container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main section h2 {
+  color: #1a1a2e;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+main section h3 {
+  color: #1a1a2e;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+main section p {
+  margin-bottom: 16px;
+  max-width: 800px;
+}
+
+main section p:last-child {
+  margin-bottom: 0;
+}
+
+main section ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+  max-width: 800px;
+}
+
+main section ul li {
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   DEADLINE CALLOUT BOX
+============================================================ */
+
+.deadline-box {
+  border-left: 4px solid #0f3460;
+  background: #e8f4f8;
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  margin-top: 24px;
+  font-size: 1rem;
+  max-width: 800px;
+}
+
+/* ============================================================
+   TIMELINE TABLE
+============================================================ */
+
+table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+table caption {
+  text-align: left;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+table thead th {
+  background: #1a1a2e;
+  color: #fff;
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+table tbody tr:last-child {
+  border-bottom: none;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+table tbody td {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   VENUE CARDS
+============================================================ */
+
+#venue {
+  /* Override shared centering for the card container */
+}
+
+#venue h2 {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.venue-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* The HTML has two .venue-card divs directly in the section — wrap them */
+#venue .venue-card {
+  flex: 1 1 0;
+  background: #fff;
+  border: 1px solid #dde;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+#venue .venue-card h3 {
+  margin-top: 0;
+  color: #0f3460;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+#venue .venue-card address {
+  font-style: normal;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+/* Two venue cards side by side using flex on the section */
+#venue {
+  display: block;
+}
+
+#venue > h2 {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+/* Use a wrapper approach via CSS: treat the pair of cards as flex row */
+#venue .venue-card:first-of-type {
+  /* nothing extra needed if we use the flex trick below */
+}
+
+/* Flex container around the two cards using adjacent sibling layout */
+/* Since both .venue-card divs are siblings in #venue, use a CSS trick */
+#venue {
+  padding: 56px 24px;
+}
+
+/* Create a flex row for the venue cards */
+#venue .venue-card ~ .venue-card,
+#venue .venue-card {
+  /* We can't directly wrap siblings in pure CSS.
+     Instead, target both cards via a flex wrapper created in the section.
+     The cards are direct children of #venue, so use a grid on #venue itself. */
+}
+
+/* Override: use CSS grid on #venue to lay out h2 + two cards */
+#venue {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  row-gap: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 56px 24px;
+  box-sizing: border-box;
+}
+
+/* Restore max-width centering: #venue itself IS the container here */
+#venue {
+  max-width: none; /* let the section go full width */
+}
+
+/* Inner wrapper for max-width */
+/* Since we can't add a wrapper without changing HTML, use a different approach:
+   make the section a flex column, then the two venue-cards flex-row children */
+
+/* FINAL approach: section is flex column, venue-cards are displayed as a flex row
+   by wrapping them conceptually — we do this by making the section relatively normal
+   and using :has() or direct child flex. Use the simplest reliable approach. */
+
+/* Reset the grid approach */
+#venue {
+  display: block;
+  padding: 56px 24px;
+  background: inherit;
+}
+
+#venue > h2 {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  color: #1a1a2e;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Wrap the two .venue-card siblings in a flex row using CSS display flow */
+/* Both venue-cards are direct children — we can target the first and use
+   a pseudo-grid trick, but simplest is: give each venue-card 48% width and float,
+   or use display:flex on a container. Since we cannot add a container in CSS alone,
+   use CSS columns or a negative-margin trick. */
+
+/* Cleanest CSS-only solution for two consecutive sibling divs: */
+#venue .venue-card {
+  display: inline-block;
+  width: calc(50% - 12px);
+  vertical-align: top;
+  background: #fff;
+  border: 1px solid #dde;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 0;
+}
+
+#venue .venue-card + .venue-card {
+  margin-left: 24px;
+}
+
+/* ============================================================
+   COMMITTEE BADGES
+============================================================ */
+
+.committee-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.committee-list li {
+  display: inline-flex;
+  align-items: center;
+  background: #f0f0f5;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   SPONSORS LOGO ROW
+============================================================ */
+
+#sponsors .logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-top: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sponsors .logo-row a {
+  display: inline-flex;
+  align-items: center;
+}
+
+#sponsors .logo-row img {
+  max-height: 40px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+#sponsors .logo-row a:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+/* ============================================================
+   SUBMISSION FORM
+============================================================ */
+
+#submit form {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label,
+.form-group legend {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #333;
+}
+
+.form-group fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.form-group fieldset legend {
+  margin-bottom: 8px;
+}
+
+.form-group fieldset label {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.form-group fieldset label input[type="radio"] {
+  width: auto;
+  margin-right: 6px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0f3460;
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.12);
+}
+
+.form-group input[type="text"]:invalid:not(:placeholder-shown),
+.form-group input[type="email"]:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+  border-color: #dc3545;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#word-count {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #888;
+}
+
+#word-count.over-limit {
+  color: #dc3545;
+}
+
+/* Drop zone */
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 4px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.drop-zone p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.drop-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  border-color: #0f3460;
+  background: #f8f8ff;
+}
+
+/* Honeypot — hidden from real users */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  tab-index: -1;
+}
+
+/* Submit button */
+#submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #0f3460;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+  font-family: inherit;
+}
+
+#submit-btn:hover {
+  background: #0a2540;
+}
+
+#submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Form status messages */
+#form-status {
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 16px;
+  display: none;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#form-status.success {
+  display: block;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+#form-status.error {
+  display: block;
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Deadline notice */
+#deadline-notice {
+  border-left: 4px solid #dc3545;
+  background: #fff5f5;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Privacy notice */
+.privacy-notice {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 16px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.privacy-notice a {
+  color: #0f3460;
+}
+
+/* ============================================================
+   FOOTER / CONTACT
+============================================================ */
+
+footer {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+footer a {
+  color: #8ab4d4;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #b8d4ea;
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    padding: 32px 16px 28px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header .subtitle {
+    font-size: 1rem;
+  }
+
+  header .logo-row {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  header .logo-row img {
+    max-height: 36px;
+  }
+
+  /* Nav */
+  nav ul {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav ul li a {
+    padding: 12px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Sections */
+  main section {
+    padding: 36px 16px;
+  }
+
+  /* Venue cards: stack vertically */
+  #venue .venue-card {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 16px;
+  }
+
+  #venue .venue-card:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Table: allow horizontal scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Form: full width on mobile */
+  #submit form {
+    max-width: 100%;
+  }
+
+  #form-status,
+  #deadline-notice,
+  .privacy-notice {
+    max-width: 100%;
+  }
+
+  /* Footer */
+  footer {
+    padding: 24px 16px;
+  }
+
+  /* Committee badges */
+  .committee-list {
+    gap: 8px;
+  }
+
+  /* Sponsors */
+  #sponsors .logo-row {
+    gap: 20px;
+  }
+}
