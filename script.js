@@ -16,7 +16,7 @@ const SUBMISSION_DEADLINE = new Date('2026-08-15T23:59:59-06:00');
 const DRAFT_KEY = 'bread-submission-draft';
 
 // Fields to persist in localStorage (excludes file input and honeypot)
-const DRAFT_FIELDS = ['authors', 'email', 'affiliation', 'currentTitle', 'title', 'abstract'];
+const DRAFT_FIELDS = ['authors', 'coauthors', 'email', 'affiliation', 'currentTitle', 'title', 'abstract'];
 
 // ---------------------------------------------------------------------------
 // ELEMENT REFERENCES (resolved after DOMContentLoaded)
@@ -146,6 +146,12 @@ function validateForm(form) {
   const lacChecked = form.querySelector('input[name="lac"]:checked');
   if (!lacChecked) {
     errors.push('Please indicate whether you are based in Latin America or the Caribbean');
+  }
+
+  // Mentoring radio
+  const mentoringChecked = form.querySelector('input[name="mentoring"]:checked');
+  if (!mentoringChecked) {
+    errors.push('Please indicate whether you would like to participate in the mentoring program');
   }
 
   // PDF file
@@ -293,6 +299,7 @@ function initSubmitHandler() {
       const mentoringEl = form.querySelector('input[name="mentoring"]:checked');
       const payload = {
         authors:      form.elements.authors.value.trim(),
+        coauthors:    form.elements.coauthors ? form.elements.coauthors.value.trim() : '',
         email:        form.elements.email.value.trim(),
         affiliation:  form.elements.affiliation.value.trim(),
         currentTitle: form.elements.currentTitle.value.trim(),

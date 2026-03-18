@@ -10,7 +10,7 @@
 1. **Create the Google Sheet**
    - Go to sheets.google.com → create new spreadsheet
    - Name it: "BREAD Mexico 2026 — Submissions"
-   - Add header row: Timestamp | Authors | Email | Affiliation | Current Title | Paper Title | Abstract | LAC-based | Mentoring | PDF Link | Status | Rating | Notes
+   - Add header row: Timestamp | Author | Co-authors | Email | Affiliation | Current Title | Paper Title | Abstract | LAC-based | Mentoring | PDF Link | Status | Rating | Notes
    - Copy the Sheet ID from the URL (between /d/ and /edit)
 
 2. **Create the Google Drive folder**

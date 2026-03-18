@@ -19,9 +19,8 @@
       <img src="assets/tec-logo.svg" alt="Tec de Monterrey logo">
       <img src="assets/caf-logo.png" alt="CAF — Development Bank of Latin America logo">
     </div>
-    <h1>BREAD Conference on Development Economics</h1>
+    <h1>BREAD / ITAM / CAF / Tec de Monterrey Conference on Development Economics</h1>
     <p class="subtitle">Mexico City — October 23–24, 2026</p>
-    <p class="tagline">Hosted by ITAM &amp; Tec de Monterrey</p>
   </header>
 
   <!-- ============================================================
@@ -48,27 +47,11 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        The Bureau for Research and Economic Analysis of Development (BREAD) organizes
-        annual conferences outside the United States and Europe to generate positive
-        spillovers for the development economics community in the host region. These
-        conferences bring together leading researchers and policymakers to advance
-        rigorous evidence on global development.
-      </p>
-      <p>
-        Mexico City offers a natural hub for Latin America and the Caribbean (LAC),
-        enabling knowledge spillovers to regional scholars, universities, and
-        policy institutions. The 2026 edition will feature a dedicated mentoring
-        component for early-career researchers based in LAC, connecting them with
-        senior economists from the global development economics community.
-      </p>
-      <p>
-        The conference format combines full-length research presentations with shorter
-        early-career sessions and a structured mentoring component. Discussions are
-        led by economists with deep expertise in the presented work.
-      </p>
-      <p>
-        Learn more about BREAD and its mission at
-        <a href="https://www.ibread.org" target="_blank" rel="noopener noreferrer">ibread.org</a>.
+        <a href="https://www.ibread.org" target="_blank" rel="noopener noreferrer">BREAD</a>
+        organizes annual conferences outside the US and Europe to support development
+        economics research in the host region. The 2026 edition in Mexico City features
+        research presentations, a mentoring program for early-career LAC-based researchers,
+        and structured engagement with the global BREAD network.
       </p>
     </section>
 
@@ -244,9 +227,15 @@
       <form id="submission-form" novalidate>
 
         <div class="form-group">
-          <label for="authors">Author name(s) *</label>
+          <label for="authors">Author (submitting) *</label>
           <input type="text" id="authors" name="authors" required
-            placeholder="Jane Doe, John Smith">
+            placeholder="Jane Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="coauthors">Co-authors (separated by comma)</label>
+          <input type="text" id="coauthors" name="coauthors"
+            placeholder="John Smith, Maria Garcia">
         </div>
 
         <div class="form-group">
@@ -301,9 +290,9 @@
 
         <div class="form-group">
           <fieldset>
-            <legend>Would you like to participate in the mentoring program?</legend>
+            <legend>Would you like to participate in the mentoring program? *</legend>
             <label>
-              <input type="radio" name="mentoring" value="Yes"> Yes
+              <input type="radio" name="mentoring" value="Yes" required> Yes
             </label>
             <label>
               <input type="radio" name="mentoring" value="No"> No

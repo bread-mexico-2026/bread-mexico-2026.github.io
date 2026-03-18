@@ -51,6 +51,7 @@ function doPost(e) {
     sheet.appendRow([
       timestamp,
       data.authors,
+      data.coauthors || '',
       data.email,
       data.affiliation,
       data.currentTitle || '',
