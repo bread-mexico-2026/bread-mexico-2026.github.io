@@ -14,10 +14,10 @@
   ============================================================ -->
   <header>
     <div class="logo-row">
-      <img src="assets/bread-logo.svg" alt="BREAD logo">
-      <img src="assets/itam-logo.svg" alt="ITAM logo">
+      <img src="assets/bread-logo.png" alt="BREAD logo">
+      <img src="assets/itam-logo.png" alt="ITAM logo">
       <img src="assets/tec-logo.svg" alt="Tec de Monterrey logo">
-      <img src="assets/caf-logo.svg" alt="CAF — Development Bank of Latin America logo">
+      <img src="assets/caf-logo.png" alt="CAF — Development Bank of Latin America logo">
     </div>
     <h1>BREAD Conference on Development Economics</h1>
     <p class="subtitle">Mexico City — October 23–24, 2026</p>
@@ -31,6 +31,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#cfp">Call for Papers</a></li>
+      <li><a href="#mentoring">Mentoring</a></li>
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#venue">Venue</a></li>
       <li><a href="#committee">Committee</a></li>
@@ -98,6 +99,36 @@
       <div class="deadline-box" role="note" aria-label="Submission deadline">
         Submission deadline: <strong>[TBD]</strong>
       </div>
+
+      <div class="notice-box">
+        <strong>Travel reimbursement:</strong> BREAD will only be able to reimburse
+        travel and hotel expenses for presenters. BREAD will not be able to reimburse
+        other participants, including BREAD fellows and affiliates. ITAM has negotiated
+        special hotel rates for the event, and participants will be given a discount code.
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MENTORING PROGRAM
+    ============================================================ -->
+    <section id="mentoring">
+      <h2>Mentoring Program</h2>
+      <p>
+        The mentoring program is open to junior researchers (PhD students or within
+        7 years of completing their PhD) who are based at institutions in Latin America
+        and the Caribbean. We especially encourage applications from researchers at
+        institutions where access to international research networks and senior
+        mentorship in development economics is limited.
+      </p>
+      <p>
+        The goal is to expand BREAD's reach in the region and support scholars whose
+        work would benefit most from structured feedback and engagement with the BREAD
+        network.
+      </p>
+      <p>
+        Mentoring track applicants may submit a full paper, an extended abstract,
+        a research design, or a pre-analysis plan.
+      </p>
     </section>
 
     <!-- ============================================================
@@ -157,10 +188,11 @@
       </div>
       <div class="venue-card">
         <h3>Day 2 — Tec de Monterrey</h3>
+        <p>School of Government, Mixcoac Campus</p>
         <address>
-          Calle del Puente 222<br>
-          Col. Ejidos de Huipulco<br>
-          Ciudad de México, 14380<br>
+          Av. Revolución 756<br>
+          Col. Nonoalco<br>
+          Benito Juárez, Ciudad de México, 03700<br>
           México
         </address>
         <p>
@@ -189,16 +221,16 @@
       <h2>Sponsors</h2>
       <div class="logo-row">
         <a href="https://www.ibread.org" target="_blank" rel="noopener noreferrer">
-          <img src="assets/bread-logo.svg" alt="BREAD">
+          <img src="assets/bread-logo.png" alt="BREAD">
         </a>
         <a href="https://www.itam.mx" target="_blank" rel="noopener noreferrer">
-          <img src="assets/itam-logo.svg" alt="ITAM">
+          <img src="assets/itam-logo.png" alt="ITAM">
         </a>
         <a href="https://www.tec.mx" target="_blank" rel="noopener noreferrer">
           <img src="assets/tec-logo.svg" alt="Tec de Monterrey">
         </a>
         <a href="https://www.caf.com" target="_blank" rel="noopener noreferrer">
-          <img src="assets/caf-logo.svg" alt="CAF — Development Bank of Latin America">
+          <img src="assets/caf-logo.png" alt="CAF — Development Bank of Latin America">
         </a>
       </div>
     </section>
@@ -230,6 +262,20 @@
         </div>
 
         <div class="form-group">
+          <label for="current-title">Current title *</label>
+          <select id="current-title" name="currentTitle" required>
+            <option value="">— Select —</option>
+            <option value="PhD student">PhD student</option>
+            <option value="Postdoctoral researcher">Postdoctoral researcher</option>
+            <option value="Assistant professor">Assistant professor</option>
+            <option value="Associate professor">Associate professor</option>
+            <option value="Full professor">Full professor</option>
+            <option value="Research fellow">Research fellow</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
           <label for="paper-title">Paper title *</label>
           <input type="text" id="paper-title" name="title" required>
         </div>
@@ -249,6 +295,18 @@
             </label>
             <label>
               <input type="radio" name="lac" value="No"> No
+            </label>
+          </fieldset>
+        </div>
+
+        <div class="form-group">
+          <fieldset>
+            <legend>Would you like to participate in the mentoring program?</legend>
+            <label>
+              <input type="radio" name="mentoring" value="Yes"> Yes
+            </label>
+            <label>
+              <input type="radio" name="mentoring" value="No"> No
             </label>
           </fieldset>
         </div>

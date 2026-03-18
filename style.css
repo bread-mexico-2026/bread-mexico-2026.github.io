@@ -185,6 +185,16 @@ main section ul li {
   max-width: 800px;
 }
 
+.notice-box {
+  border-left: 4px solid #c9a227;
+  background: #fef9e7;
+  padding: 16px 20px;
+  border-radius: 0 4px 4px 0;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  max-width: 800px;
+}
+
 /* ============================================================
    TIMELINE TABLE
 ============================================================ */
@@ -479,7 +489,8 @@ table tbody td {
 
 .form-group input[type="text"],
 .form-group input[type="email"],
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   display: block;
   width: 100%;
   border: 1px solid #ccc;
@@ -494,7 +505,8 @@ table tbody td {
 
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
   outline: none;
   border-color: #0f3460;
   box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.12);

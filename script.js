@@ -16,7 +16,7 @@ const SUBMISSION_DEADLINE = new Date('2026-08-15T23:59:59-06:00');
 const DRAFT_KEY = 'bread-submission-draft';
 
 // Fields to persist in localStorage (excludes file input and honeypot)
-const DRAFT_FIELDS = ['authors', 'email', 'affiliation', 'title', 'abstract'];
+const DRAFT_FIELDS = ['authors', 'email', 'affiliation', 'currentTitle', 'title', 'abstract'];
 
 // ---------------------------------------------------------------------------
 // ELEMENT REFERENCES (resolved after DOMContentLoaded)
@@ -59,6 +59,10 @@ function saveFormDraft() {
   const lacChecked = form.querySelector('input[name="lac"]:checked');
   draft.lac = lacChecked ? lacChecked.value : '';
 
+  // Radio: mentoring
+  const mentoringChecked = form.querySelector('input[name="mentoring"]:checked');
+  draft.mentoring = mentoringChecked ? mentoringChecked.value : '';
+
   localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
 }
 
@@ -89,6 +93,12 @@ function restoreFormDraft() {
     const radio = form.querySelector(`input[name="lac"][value="${draft.lac}"]`);
     if (radio) radio.checked = true;
   }
+
+  // Radio: mentoring
+  if (draft.mentoring) {
+    const radio = form.querySelector(`input[name="mentoring"][value="${draft.mentoring}"]`);
+    if (radio) radio.checked = true;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -100,11 +110,12 @@ function validateForm(form) {
 
   // Required text fields
   const textFields = [
-    { name: 'authors',     label: 'Author name(s)' },
-    { name: 'email',       label: 'Contact email' },
-    { name: 'affiliation', label: 'Affiliation(s)' },
-    { name: 'title',       label: 'Paper title' },
-    { name: 'abstract',    label: 'Abstract' },
+    { name: 'authors',      label: 'Author name(s)' },
+    { name: 'email',        label: 'Contact email' },
+    { name: 'affiliation',  label: 'Affiliation(s)' },
+    { name: 'currentTitle', label: 'Current title' },
+    { name: 'title',        label: 'Paper title' },
+    { name: 'abstract',     label: 'Abstract' },
   ];
 
   textFields.forEach(({ name, label }) => {
@@ -279,16 +290,19 @@ function initSubmitHandler() {
       const pdfFile = form.elements.pdf.files[0];
       const pdfBase64 = await fileToBase64(pdfFile);
 
+      const mentoringEl = form.querySelector('input[name="mentoring"]:checked');
       const payload = {
-        authors:    form.elements.authors.value.trim(),
-        email:      form.elements.email.value.trim(),
-        affiliation: form.elements.affiliation.value.trim(),
-        title:      form.elements.title.value.trim(),
-        abstract:   form.elements.abstract.value.trim(),
-        lac:        form.querySelector('input[name="lac"]:checked').value,
-        website:    form.elements.website ? form.elements.website.value : '', // honeypot
-        pdfName:    pdfFile.name,
-        pdfBase64:  pdfBase64,
+        authors:      form.elements.authors.value.trim(),
+        email:        form.elements.email.value.trim(),
+        affiliation:  form.elements.affiliation.value.trim(),
+        currentTitle: form.elements.currentTitle.value.trim(),
+        title:        form.elements.title.value.trim(),
+        abstract:     form.elements.abstract.value.trim(),
+        lac:          form.querySelector('input[name="lac"]:checked').value,
+        mentoring:    mentoringEl ? mentoringEl.value : '',
+        website:      form.elements.website ? form.elements.website.value : '', // honeypot
+        pdfName:      pdfFile.name,
+        pdfBase64:    pdfBase64,
       };
 
       // Content-Type: text/plain avoids CORS preflight (Apps Script cannot

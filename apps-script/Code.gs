@@ -53,9 +53,11 @@ function doPost(e) {
       data.authors,
       data.email,
       data.affiliation,
+      data.currentTitle || '',
       data.title,
       data.abstract,
       data.lac,
+      data.mentoring || '',
       pdfUrl,
       'Received', // Status
       '',         // Rating
