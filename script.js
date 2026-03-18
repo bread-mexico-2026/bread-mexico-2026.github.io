@@ -312,35 +312,27 @@ function initSubmitHandler() {
         pdfBase64:    pdfBase64,
       };
 
-      // Content-Type: text/plain avoids CORS preflight (Apps Script cannot
-      // respond to OPTIONS). The Apps Script handler must parse the body as JSON.
-      const response = await fetch(APPS_SCRIPT_URL, {
+      // mode: 'no-cors' is required because Google Apps Script's redirect
+      // chain does not include proper CORS headers. This means we get an
+      // opaque response (can't read the body), but the request goes through.
+      // Server-side errors are visible in the Apps Script execution logs.
+      await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        redirect: 'follow',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error(`Server returned ${response.status}`);
-      }
-
-      const result = await response.json();
-
-      if (result.success) {
-        statusDiv.className = 'success';
-        statusDiv.textContent = 'Submission received. Thank you!';
-        form.reset();
-        // Reset drop zone label
-        const p = document.querySelector('#drop-zone p');
-        if (p) p.textContent = 'Drop PDF here or click to browse';
-        localStorage.removeItem(DRAFT_KEY);
-        // Reset word counter
-        updateWordCount();
-      } else {
-        statusDiv.className = 'error';
-        statusDiv.textContent = result.message || 'Submission failed. Please try again.';
-      }
+      // If fetch didn't throw, the request was sent successfully
+      statusDiv.className = 'success';
+      statusDiv.textContent = 'Submission received. Thank you!';
+      form.reset();
+      // Reset drop zone label
+      const p = document.querySelector('#drop-zone p');
+      if (p) p.textContent = 'Drop PDF here or click to browse';
+      localStorage.removeItem(DRAFT_KEY);
+      // Reset word counter
+      updateWordCount();
     } catch (err) {
       statusDiv.className = 'error';
       statusDiv.textContent = 'Network error. Please check your connection and try again.';
