@@ -335,8 +335,10 @@ function initSubmitHandler() {
       updateWordCount();
     } catch (err) {
       statusDiv.className = 'error';
-      statusDiv.textContent = 'Network error. Please check your connection and try again.';
+      statusDiv.textContent = 'Error: ' + err.message + ' (check browser console for details)';
       console.error('Submission error:', err);
+      console.error('Error name:', err.name);
+      console.error('Error stack:', err.stack);
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Submit Paper';
