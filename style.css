@@ -236,30 +236,25 @@ table tbody td {
 }
 
 /* ============================================================
-   VENUE CARDS
+   VENUE CARD
 ============================================================ */
 
 #venue {
-  /* Override shared centering for the card container */
+  display: block;
+  padding: 56px 24px;
 }
 
-#venue h2 {
+#venue > h2 {
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 20px;
+  color: #1a1a2e;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.venue-cards {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
+#venue .venue-card {
   max-width: 800px;
   margin: 0 auto;
-}
-
-/* The HTML has two .venue-card divs directly in the section — wrap them */
-#venue .venue-card {
-  flex: 1 1 0;
   background: #fff;
   border: 1px solid #dde;
   border-radius: 8px;
@@ -282,99 +277,14 @@ table tbody td {
   font-size: 0.9rem;
 }
 
-/* Two venue cards side by side using flex on the section */
-#venue {
-  display: block;
-}
-
-#venue > h2 {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-/* Use a wrapper approach via CSS: treat the pair of cards as flex row */
-#venue .venue-card:first-of-type {
-  /* nothing extra needed if we use the flex trick below */
-}
-
-/* Flex container around the two cards using adjacent sibling layout */
-/* Since both .venue-card divs are siblings in #venue, use a CSS trick */
-#venue {
-  padding: 56px 24px;
-}
-
-/* Create a flex row for the venue cards */
-#venue .venue-card ~ .venue-card,
-#venue .venue-card {
-  /* We can't directly wrap siblings in pure CSS.
-     Instead, target both cards via a flex wrapper created in the section.
-     The cards are direct children of #venue, so use a grid on #venue itself. */
-}
-
-/* Override: use CSS grid on #venue to lay out h2 + two cards */
-#venue {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  column-gap: 24px;
-  row-gap: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 56px 24px;
-  box-sizing: border-box;
-}
-
-/* Restore max-width centering: #venue itself IS the container here */
-#venue {
-  max-width: none; /* let the section go full width */
-}
-
-/* Inner wrapper for max-width */
-/* Since we can't add a wrapper without changing HTML, use a different approach:
-   make the section a flex column, then the two venue-cards flex-row children */
-
-/* FINAL approach: section is flex column, venue-cards are displayed as a flex row
-   by wrapping them conceptually — we do this by making the section relatively normal
-   and using :has() or direct child flex. Use the simplest reliable approach. */
-
-/* Reset the grid approach */
-#venue {
-  display: block;
-  padding: 56px 24px;
-  background: inherit;
-}
-
-#venue > h2 {
-  max-width: 800px;
-  margin: 0 auto 20px;
-  color: #1a1a2e;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-/* Wrap the two .venue-card siblings in a flex row using CSS display flow */
-/* Both venue-cards are direct children — we can target the first and use
-   a pseudo-grid trick, but simplest is: give each venue-card 48% width and float,
-   or use display:flex on a container. Since we cannot add a container in CSS alone,
-   use CSS columns or a negative-margin trick. */
-
-/* Cleanest CSS-only solution for two consecutive sibling divs: */
-#venue .venue-card {
-  display: inline-block;
-  width: calc(50% - 12px);
-  vertical-align: top;
-  background: #fff;
-  border: 1px solid #dde;
-  border-radius: 8px;
-  padding: 24px;
-  margin-bottom: 0;
-}
-
-#venue .venue-card + .venue-card {
-  margin-left: 24px;
+#venue .venue-note {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #fff7e6;
+  border-left: 4px solid #d97706;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 /* ============================================================
@@ -733,16 +643,11 @@ footer a:hover {
     padding: 36px 16px;
   }
 
-  /* Venue cards: stack vertically */
+  /* Venue card on mobile: full width */
   #venue .venue-card {
-    display: block;
     width: 100%;
-    margin-left: 0;
-    margin-bottom: 16px;
-  }
-
-  #venue .venue-card:last-child {
-    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Table: allow horizontal scroll */
