@@ -1,7 +1,7 @@
 // === CONFIGURATION ===
 const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID';
 const DRIVE_FOLDER_ID = 'YOUR_DRIVE_FOLDER_ID';
-const SUBMISSION_DEADLINE = new Date('2026-08-15T23:59:59-06:00'); // Update when known
+const SUBMISSION_DEADLINE = new Date('2026-06-19T23:59:59-06:00'); // Friday June 19, 2026 23:59 CST
 
 function doPost(e) {
   try {

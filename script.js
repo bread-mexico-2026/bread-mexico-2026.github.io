@@ -10,8 +10,8 @@
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyapomcvsI1EgkTNoL6PSIO8GXmqusdctdb8utAtrpS1vpOJAGHbvlTOe_nlOmxDbmJ/exec';
 
-// Deadline: August 15 2026 23:59:59 CST (UTC-6)
-const SUBMISSION_DEADLINE = new Date('2026-08-15T23:59:59-06:00');
+// Deadline: Friday June 19, 2026 23:59:59 CST (UTC-6)
+const SUBMISSION_DEADLINE = new Date('2026-06-19T23:59:59-06:00');
 
 const DRAFT_KEY = 'bread-submission-draft';
 
