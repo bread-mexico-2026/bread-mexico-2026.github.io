@@ -60,9 +60,12 @@ function doPost(e) {
       data.lac,
       data.mentoring || '',
       pdfUrl,
-      'Received', // Status
-      '',         // Rating
-      ''          // Notes
+      'Received',              // L — Status
+      '',                       // M — Rating
+      '',                       // N — Notes
+      data.outputType || '',    // O — Output type (mentoring only)
+      data.phdYear || '',       // P — PhD year (mentoring only)
+      data.phdStudent || ''     // Q — Currently a PhD student (mentoring only)
     ]);
 
     return jsonResponse({ success: true, message: 'Submission received. Thank you!' });

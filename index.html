@@ -68,8 +68,12 @@
 
       <h3>Eligibility</h3>
       <p>
-        All researchers are eligible to submit. Priority will be given to scholars
-        based in Latin America or the Caribbean (LAC) and to early-career researchers.
+        We encourage applications from scholars based in Latin America and the
+        Caribbean, as well as from researchers working on development questions
+        in the region. That said, all research in development economics is
+        relevant to the conference, and submissions from any region or topic
+        within the field are welcome. Applications from PhD students, postdocs,
+        and early-career faculty are particularly encouraged.
       </p>
 
       <h3>Session Types</h3>
@@ -362,6 +366,37 @@
             <label>
               <input type="radio" name="mentoring" value="No"> No
             </label>
+          </fieldset>
+        </div>
+
+        <div class="form-group" id="mentoring-details" style="display:none">
+          <fieldset>
+            <legend>Mentoring program details</legend>
+
+            <label for="outputType">Type of submission *</label>
+            <select id="outputType" name="outputType">
+              <option value="">— Select —</option>
+              <option value="Full paper">Full paper</option>
+              <option value="Extended abstract">Extended abstract</option>
+              <option value="Research design">Research design</option>
+              <option value="Pre-analysis plan">Pre-analysis plan (PAP)</option>
+            </select>
+
+            <label for="phdYear" style="margin-top:12px">
+              Year of PhD (or expected year if still a student) *
+            </label>
+            <input type="number" id="phdYear" name="phdYear" min="1980" max="2035"
+              placeholder="e.g. 2022">
+
+            <label style="display:block; margin-top:8px">
+              <input type="checkbox" id="phdStudent" name="phdStudent" value="Yes">
+              I am currently a PhD student
+            </label>
+
+            <p class="form-hint" style="margin-top:8px; font-size:0.9rem; color:#555">
+              The mentoring program is open to PhD students and to researchers
+              within seven years of completing their PhD.
+            </p>
           </fieldset>
         </div>
 

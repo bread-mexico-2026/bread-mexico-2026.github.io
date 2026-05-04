@@ -16,7 +16,7 @@ const SUBMISSION_DEADLINE = new Date('2026-06-19T23:59:59-06:00');
 const DRAFT_KEY = 'bread-submission-draft';
 
 // Fields to persist in localStorage (excludes file input and honeypot)
-const DRAFT_FIELDS = ['authors', 'coauthors', 'email', 'affiliation', 'currentTitle', 'title', 'abstract'];
+const DRAFT_FIELDS = ['authors', 'coauthors', 'email', 'affiliation', 'currentTitle', 'title', 'abstract', 'outputType', 'phdYear'];
 
 // ---------------------------------------------------------------------------
 // ELEMENT REFERENCES (resolved after DOMContentLoaded)
@@ -63,6 +63,10 @@ function saveFormDraft() {
   const mentoringChecked = form.querySelector('input[name="mentoring"]:checked');
   draft.mentoring = mentoringChecked ? mentoringChecked.value : '';
 
+  // Checkbox: phdStudent
+  const phdStudentEl = form.elements.phdStudent;
+  draft.phdStudent = phdStudentEl && phdStudentEl.checked ? 'Yes' : '';
+
   localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
 }
 
@@ -98,6 +102,12 @@ function restoreFormDraft() {
   if (draft.mentoring) {
     const radio = form.querySelector(`input[name="mentoring"][value="${draft.mentoring}"]`);
     if (radio) radio.checked = true;
+  }
+
+  // Checkbox: phdStudent
+  if (draft.phdStudent === 'Yes') {
+    const cb = form.elements.phdStudent;
+    if (cb) cb.checked = true;
   }
 }
 
@@ -152,6 +162,26 @@ function validateForm(form) {
   const mentoringChecked = form.querySelector('input[name="mentoring"]:checked');
   if (!mentoringChecked) {
     errors.push('Please indicate whether you would like to participate in the mentoring program');
+  }
+
+  // Conditional mentoring fields (when mentoring === 'Yes')
+  if (mentoringChecked && mentoringChecked.value === 'Yes') {
+    const ot = form.elements.outputType;
+    if (!ot || ot.value.trim() === '') {
+      errors.push('Please select the type of submission for the mentoring program');
+    }
+    const yr = form.elements.phdYear;
+    const isStudent = form.elements.phdStudent && form.elements.phdStudent.checked;
+    if (!yr || yr.value.trim() === '') {
+      errors.push('Please enter your PhD year (or expected year)');
+    } else {
+      const y = parseInt(yr.value, 10);
+      if (isNaN(y) || y < 1980 || y > 2035) {
+        errors.push('PhD year must be between 1980 and 2035');
+      } else if (!isStudent && (2026 - y) > 7) {
+        errors.push('The mentoring program is open to those within 7 years of their PhD; check the "current PhD student" box if applicable, or unselect mentoring participation');
+      }
+    }
   }
 
   // PDF file
@@ -299,6 +329,7 @@ function initSubmitHandler() {
       statusDiv.textContent = 'Uploading your paper. This may take a minute for large files.';
 
       const mentoringEl = form.querySelector('input[name="mentoring"]:checked');
+      const isMentoring = mentoringEl && mentoringEl.value === 'Yes';
       const payload = {
         authors:      form.elements.authors.value.trim(),
         coauthors:    form.elements.coauthors ? form.elements.coauthors.value.trim() : '',
@@ -309,6 +340,9 @@ function initSubmitHandler() {
         abstract:     form.elements.abstract.value.trim(),
         lac:          form.querySelector('input[name="lac"]:checked').value,
         mentoring:    mentoringEl ? mentoringEl.value : '',
+        outputType:   isMentoring ? form.elements.outputType.value : '',
+        phdYear:      isMentoring ? form.elements.phdYear.value.trim() : '',
+        phdStudent:   isMentoring && form.elements.phdStudent.checked ? 'Yes' : 'No',
         website:      form.elements.website ? form.elements.website.value : '', // honeypot
         pdfName:      pdfFile.name,
         pdfBase64:    pdfBase64,
@@ -355,6 +389,22 @@ function initSubmitHandler() {
 }
 
 // ---------------------------------------------------------------------------
+// MENTORING DETAILS SHOW/HIDE
+// ---------------------------------------------------------------------------
+
+function initMentoringToggle() {
+  const radios = document.querySelectorAll('input[name="mentoring"]');
+  const details = document.getElementById('mentoring-details');
+  if (!details) return;
+  const sync = () => {
+    const checked = document.querySelector('input[name="mentoring"]:checked');
+    details.style.display = checked && checked.value === 'Yes' ? 'block' : 'none';
+  };
+  radios.forEach(r => r.addEventListener('change', sync));
+  sync();
+}
+
+// ---------------------------------------------------------------------------
 // DOMCONTENTLOADED WIRING
 // ---------------------------------------------------------------------------
 
@@ -370,6 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Trigger deadline check (hides form if past deadline)
   checkDeadline();
+
+  // Wire up mentoring details show/hide (after restoreFormDraft so it
+  // reflects restored radio state)
+  initMentoringToggle();
 
   // Wire up submit handler
   initSubmitHandler();
