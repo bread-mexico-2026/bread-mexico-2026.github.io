@@ -53,6 +53,10 @@ header .logo-row img {
   width: auto;
 }
 
+header .logo-row img[src*="caf-logo"] {
+  max-height: 72px;
+}
+
 header h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -341,6 +345,10 @@ table tbody td {
   transition: filter 0.3s, opacity 0.3s;
 }
 
+#sponsors .logo-row img[src*="caf-logo"] {
+  max-height: 60px;
+}
+
 #sponsors .logo-row a:hover img {
   filter: none;
   opacity: 1;
@@ -618,6 +626,10 @@ footer a:hover {
 
   header .logo-row img {
     max-height: 36px;
+  }
+
+  header .logo-row img[src*="caf-logo"] {
+    max-height: 54px;
   }
 
   /* Nav */
