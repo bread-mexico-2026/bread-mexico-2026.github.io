@@ -193,8 +193,8 @@ function validateForm(form) {
     if (file.type !== 'application/pdf') {
       errors.push('The uploaded file must be a PDF');
     }
-    if (file.size > 10 * 1024 * 1024) {
-      errors.push('PDF file size must not exceed 10 MB');
+    if (file.size > 20 * 1024 * 1024) {
+      errors.push('PDF file size must not exceed 20 MB');
     }
   }
 

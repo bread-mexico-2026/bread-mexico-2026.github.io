@@ -30,8 +30,8 @@ function doPost(e) {
 
     // 4. Check file size before decoding (base64 is ~4/3 of actual size)
     var approxSize = data.pdfBase64.length * 3 / 4;
-    if (approxSize > 10 * 1024 * 1024) {
-      return jsonResponse({ success: false, message: 'PDF exceeds 10 MB limit.' });
+    if (approxSize > 20 * 1024 * 1024) {
+      return jsonResponse({ success: false, message: 'PDF exceeds 20 MB limit.' });
     }
 
     // 5. Decode and save PDF
