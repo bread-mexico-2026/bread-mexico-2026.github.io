@@ -2,3 +2,11 @@
 Thumbs.db
 *.swp
 .superpowers/
+
+# Confidential review material -- this repo publishes to public GitHub Pages.
+# Never commit submitted papers, referee scores, or agent config.
+submissions/
+reviews/
+BREAD2026_desk_review_scores*.csv
+BREAD2026_desk_review_scores*.xlsx
+.claude/

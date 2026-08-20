@@ -1,0 +1,335 @@
+{
+  "conference": "BREAD / ITAM / CAF Conference on Development Economics",
+  "venue": "ITAM, Santa Teresa Campus, Mexico City",
+  "timezone": "CST (America/Mexico_City, UTC-6)",
+  "generated": "2026-08-17",
+  "days": [
+    {
+      "label": "Friday 23 October 2026",
+      "blocks": [
+        {
+          "type": "break",
+          "time": "08:45-08:50",
+          "title": "Welcome - Romero, Rasul, ITAM, CAF"
+        },
+        {
+          "type": "session",
+          "time": "08:50-10:50",
+          "title": "S1. Human capital formation",
+          "papers": [
+            {
+              "id": "BM26-0019",
+              "title": "Targeting Foundational Skills at Scale: Skill Specificity and Transfer",
+              "presenter": "Andreas de Barros",
+              "affiliation": "University of California, Irvine",
+              "coauthors": [
+                "Theresa Lubozha"
+              ],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0404",
+              "title": "Dynamic Complementarities in Human Capital Formation: Long-Term Evidence from Preschool and School Feeding",
+              "presenter": "Camila Galindo",
+              "affiliation": "Universidad de los Andes",
+              "coauthors": [
+                "Fabio Sanchez"
+              ],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0221",
+              "title": "Menstrual Stigma and Human Capital: Experimental Evidence from Madagascar",
+              "presenter": "Duncan Webb",
+              "affiliation": "Nova School of Business and Economics",
+              "coauthors": [
+                "Karen Macours",
+                "Julieta Vera Rueda"
+              ],
+              "format": "Short",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "10:50-11:20",
+          "title": "Coffee (30 min)"
+        },
+        {
+          "type": "session",
+          "time": "11:20-12:20",
+          "title": "S2. Early-career session I - Land, environment & firms",
+          "papers": [
+            {
+              "id": "BM26-0073",
+              "title": "Land Subsidence: Environmental Risk in Housing Markets in Mexico City",
+              "presenter": "Lucy Hackett",
+              "affiliation": "Banco de México",
+              "coauthors": [
+                "Carolina Rodríguez-Zamora"
+              ],
+              "format": "Early-career",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0345",
+              "title": "Environmental Regulation and Labor Reallocation: Evidence from a developing economy",
+              "presenter": "Carlos Guilherme da Neves Cabrine",
+              "affiliation": "Fundação Getulio Vargas",
+              "coauthors": [
+                "Francisco Costa"
+              ],
+              "format": "Early-career",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0384",
+              "title": "Size-based business taxation in a high-informality context",
+              "presenter": "Cristiano Costa Carvalho",
+              "affiliation": "PUC-Rio",
+              "coauthors": [],
+              "format": "Early-career",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "12:20-13:40",
+          "title": "Lunch (1h20)"
+        },
+        {
+          "type": "session",
+          "time": "13:40-15:10",
+          "title": "S3. Environmental regulation & adaptation",
+          "papers": [
+            {
+              "id": "BM26-0553",
+              "title": "Floods: Measurement, Impacts, and Adaptation",
+              "presenter": "Dev Patel",
+              "affiliation": "Brown University",
+              "coauthors": [],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0342",
+              "title": "Environmental Regulation, Firm Export Dynamics, and Welfare: Evidence from Mexico’s Air-Quality Programs",
+              "presenter": "Bonang Seoela",
+              "affiliation": "Indiana University",
+              "coauthors": [],
+              "format": "Short",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0133",
+              "title": "Structural Change Through Environmental Regulation: Evidence from São Paulo's Fire Ban",
+              "presenter": "Francisco Costa",
+              "affiliation": "FGV EPGE Brazilian School of Economics and Finance",
+              "coauthors": [
+                "Francisco Luis Lima",
+                "Leticia Nunes"
+              ],
+              "format": "Short",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "15:10-15:40",
+          "title": "Coffee (30 min)"
+        },
+        {
+          "type": "session",
+          "time": "15:40-17:30",
+          "title": "S4. Market power & allocation",
+          "papers": [
+            {
+              "id": "BM26-0132",
+              "title": "Defensive Specialization: Theory and Evidence from Mexico's Retail Sector",
+              "presenter": "Miguel Angel Talamas Marcos",
+              "affiliation": "Inter American Development Bank",
+              "coauthors": [
+                "Luis Cabral",
+                "Tommaso Bondi",
+                "Shreya Kankanhalli"
+              ],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0167",
+              "title": "Quality Standards, College Market Power, and the Allocation of Human Capital",
+              "presenter": "Felipe Brugues",
+              "affiliation": "ITAM",
+              "coauthors": [
+                "Luis Armona",
+                "Rebecca De Simone",
+                "Sebastian Otero"
+              ],
+              "format": "Short",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0322",
+              "title": "Shifting Pathways: Anticipatory Responses to Preferential Admissions in Elite Colleges",
+              "presenter": "Ana Paula Melo",
+              "affiliation": "Howard University",
+              "coauthors": [
+                "Ursula Mello",
+                "Alei Santos"
+              ],
+              "format": "Short",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0600",
+              "title": "The Market for Antibiotics: Sorting, Signals, and Regulation in Kenya",
+              "presenter": "Anne Karing",
+              "affiliation": "University of Chicago",
+              "coauthors": [
+                "Michael Dinerstein",
+                "Younggeun Yoo"
+              ],
+              "format": "Short",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "17:30",
+          "title": "Conference dinner, on campus"
+        }
+      ]
+    },
+    {
+      "label": "Saturday 24 October 2026",
+      "blocks": [
+        {
+          "type": "session",
+          "time": "09:00-11:00",
+          "title": "S5. Agriculture, growth & poverty",
+          "papers": [
+            {
+              "id": "BM26-0360",
+              "title": "Trac(k)tors of Change: Monitoring, Tractor Mobility and Agricultural Mechanization in Kenya",
+              "presenter": "Sophie Nottmeyer",
+              "affiliation": "Banco de México",
+              "coauthors": [],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0324",
+              "title": "What Started China's Miracle? The View from Outer Space",
+              "presenter": "Joel Ferguson",
+              "affiliation": "University of Wisconsin – Madison",
+              "coauthors": [
+                "Oliver Kim"
+              ],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0053",
+              "title": "The Sisyphean Pursuit of Evidence for Poverty Traps",
+              "presenter": "Amol Singh Raswan",
+              "affiliation": "University of California - Berkeley",
+              "coauthors": [
+                "Dean Karlan",
+                "Christopher Udry"
+              ],
+              "format": "Short",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "11:00-11:30",
+          "title": "Coffee (30 min)"
+        },
+        {
+          "type": "session",
+          "time": "11:30-12:30",
+          "title": "S6. Early-career session II - Human capital & social protection",
+          "papers": [
+            {
+              "id": "BM26-0271",
+              "title": "Who Stays the Course? Early Classroom Rank and Educational Trajectories",
+              "presenter": "Jesus Gutierrez Andrade",
+              "affiliation": "Lancaster University",
+              "coauthors": [
+                "Saurabh Singhal"
+              ],
+              "format": "Early-career",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0128",
+              "title": "The Price of Formality: The Role of Social Insurance in Labor Market Choices",
+              "presenter": "Karla Hernandez",
+              "affiliation": "Pontificia Universidad Javeriana",
+              "coauthors": [],
+              "format": "Early-career",
+              "duration": "20 min"
+            },
+            {
+              "id": "BM26-0005",
+              "title": "Timing Matters: Evidence from Government Benefit Schedules",
+              "presenter": "Felipe Tomkowski",
+              "affiliation": "Insper",
+              "coauthors": [
+                "Filipe Correia",
+                "Marco Bonomo",
+                "Lucas Iten Teixeira"
+              ],
+              "format": "Early-career",
+              "duration": "20 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "12:30-13:50",
+          "title": "Lunch (1h20)"
+        },
+        {
+          "type": "session",
+          "time": "13:50-15:30",
+          "title": "S7. Information, networks & markets",
+          "papers": [
+            {
+              "id": "BM26-0283",
+              "title": "Nationwide Diffusion of Technology: Experimental Evidence from Multiple Networks",
+              "presenter": "Deivy Houeix",
+              "affiliation": "Harvard University",
+              "coauthors": [],
+              "format": "Full",
+              "duration": "50 min"
+            },
+            {
+              "id": "BM26-0036",
+              "title": "Screening Women Out? Pay Transparency in Job Postings",
+              "presenter": "Amen Jalal",
+              "affiliation": "Harvard University",
+              "coauthors": [],
+              "format": "Full",
+              "duration": "50 min"
+            }
+          ]
+        },
+        {
+          "type": "break",
+          "time": "15:30-15:40",
+          "title": "Closing"
+        }
+      ]
+    }
+  ]
+}
